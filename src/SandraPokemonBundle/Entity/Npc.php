@@ -42,6 +42,13 @@ class Npc
      */
     private $texte;
 
+    /**
+     * @var Dresseurs
+     *
+     * @ORM\ManyToOne(targetEntity="Dresseurs")
+     * @ORM\JoinColumn(name="id_dresseur", referencedColumnName="id", nullable=true)
+     */
+    private $dresseur;
 
     /**
      * Get id
@@ -123,6 +130,22 @@ class Npc
     public function getTexte()
     {
         return $this->texte;
+    }
+
+    /**
+     * @return Dresseurs
+     */
+    public function getDresseur()
+    {
+        return $this->dresseur;
+    }
+
+    /**
+     * @param Dresseurs $dresseur
+     */
+    public function setDresseur($dresseur)
+    {
+        $this->dresseur = $dresseur;
     }
 }
 

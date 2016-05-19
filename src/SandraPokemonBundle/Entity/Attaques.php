@@ -42,6 +42,13 @@ class Attaques
      */
     private $precis;
 
+    /**
+     * @var Type
+     *
+     * @ORM\ManyToOne(targetEntity="Types")
+     * @ORM\JoinColumn(name="id_types", referencedColumnName="id", nullable=true)
+     */
+    private $type;
 
     /**
      * Get id
@@ -123,6 +130,22 @@ class Attaques
     public function getPrecis()
     {
         return $this->precis;
+    }
+
+    /**
+     * @return Type
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param Type $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 }
 

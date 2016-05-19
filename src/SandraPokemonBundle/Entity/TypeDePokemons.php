@@ -70,6 +70,13 @@ class TypeDePokemons
      */
     private $pv;
 
+    /**
+     * @var Pokedex
+     *
+     * @ORM\ManyToOne(targetEntity="Pokedex")
+     * @ORM\JoinColumn(name="id_pokedex", referencedColumnName="id", nullable=true)
+     */
+    private $pokedex;
 
     /**
      * Get id
@@ -247,6 +254,22 @@ class TypeDePokemons
     public function getPv()
     {
         return $this->pv;
+    }
+
+    /**
+     * @return Pokedex
+     */
+    public function getPokedex()
+    {
+        return $this->pokedex;
+    }
+
+    /**
+     * @param Pokedex $pokedex
+     */
+    public function setPokedex($pokedex)
+    {
+        $this->pokedex = $pokedex;
     }
 }
 

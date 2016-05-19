@@ -35,6 +35,21 @@ class Positions
      */
     private $y;
 
+    /**
+     * @var Zones
+     *
+     * @ORM\ManyToOne(targetEntity="Zones")
+     * @ORM\JoinColumn(name="id_zones", referencedColumnName="id", nullable=true)
+     */
+    private $zone;
+
+    /**
+     * @var Arenes
+     *
+     * @ORM\ManyToOne(targetEntity="Arenes")
+     * @ORM\JoinColumn(name="id_arene, referencedColumnName="id", nullable=true)
+     */
+    private $arene;
 
     /**
      * Get id
@@ -92,6 +107,38 @@ class Positions
     public function getY()
     {
         return $this->y;
+    }
+
+    /**
+     * @return Zones
+     */
+    public function getZone()
+    {
+        return $this->zone;
+    }
+
+    /**
+     * @param Zones $zone
+     */
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
+
+    /**
+     * @return Arenes
+     */
+    public function getArene()
+    {
+        return $this->arene;
+    }
+
+    /**
+     * @param Arenes $arene
+     */
+    public function setArene($arene)
+    {
+        $this->arene = $arene;
     }
 }
 
