@@ -1,13 +1,15 @@
 <?php
 
-namespace SandraPokemonBundle\Entity\Entity;
+namespace SandraPokemonBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use SandraPokemonBundle\Entity\Types;
 
 /**
  * TypeDePokemons
  *
- * @ORM\Table(name="entity\type_de_pokemons")
+ * @ORM\Table(name="type_de_pokemons")
  * @ORM\Entity(repositoryClass="SandraPokemonBundle\Repository\Entity\TypeDePokemonsRepository")
  */
 class TypeDePokemons
@@ -77,6 +79,30 @@ class TypeDePokemons
      * @ORM\JoinColumn(name="id_pokedex", referencedColumnName="id", nullable=true)
      */
     private $pokedex;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Types")
+     * @ORM\JoinTable(name="possede_les_types",
+     *      joinColumns={@ORM\JoinColumn(name="id_type_pokemons", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="id_types", referencedColumnName="id")}
+     *      )
+     */
+    private $types;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="TypeDePokemons")
+     * @ORM\JoinTable(name="evolue_en",
+     *      joinColumns={@ORM\JoinColumn(name="id_type_pokemons", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="id_type_pokemons_typedepokemons", referencedColumnName="id")}
+     *      )
+     */
+    private $evolution;
+
+
+    public function __construct() {
+        $this->types = new ArrayCollection();
+        $this->fortContre = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -271,5 +297,72 @@ class TypeDePokemons
     {
         $this->pokedex = $pokedex;
     }
-}
 
+    /**
+     * Add type
+     *
+     * @param \SandraPokemonBundle\Entity\Types $type
+     *
+     * @return TypeDePokemons
+     */
+    public function addType(\SandraPokemonBundle\Entity\Types $type)
+    {
+        $this->types[] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Remove type
+     *
+     * @param \SandraPokemonBundle\Entity\Types $type
+     */
+    public function removeType(\SandraPokemonBundle\Entity\Types $type)
+    {
+        $this->types->removeElement($type);
+    }
+
+    /**
+     * Get types
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTypes()
+    {
+        return $this->types;
+    }
+
+    /**
+     * Add evolution
+     *
+     * @param \SandraPokemonBundle\Entity\TypeDePokemons $evolution
+     *
+     * @return TypeDePokemons
+     */
+    public function addEvolution(\SandraPokemonBundle\Entity\TypeDePokemons $evolution)
+    {
+        $this->evolution[] = $evolution;
+
+        return $this;
+    }
+
+    /**
+     * Remove evolution
+     *
+     * @param \SandraPokemonBundle\Entity\TypeDePokemons $evolution
+     */
+    public function removeEvolution(\SandraPokemonBundle\Entity\TypeDePokemons $evolution)
+    {
+        $this->evolution->removeElement($evolution);
+    }
+
+    /**
+     * Get evolution
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvolution()
+    {
+        return $this->evolution;
+    }
+}

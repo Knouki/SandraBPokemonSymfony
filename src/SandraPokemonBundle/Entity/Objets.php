@@ -1,13 +1,13 @@
 <?php
 
-namespace SandraPokemonBundle\Entity\Entity;
+namespace SandraPokemonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Objets
  *
- * @ORM\Table(name="entity\objets")
+ * @ORM\Table(name="objets")
  * @ORM\Entity(repositoryClass="SandraPokemonBundle\Repository\Entity\ObjetsRepository")
  */
 class Objets
@@ -35,6 +35,21 @@ class Objets
      */
     private $quantite;
 
+    /**
+     * @var Npc
+     *
+     * @ORM\ManyToOne(targetEntity="Npc")
+     * @ORM\JoinColumn(name="id_nonjoueur", referencedColumnName="id", nullable=true)
+     */
+    private $nonJoueur;
+
+    /**
+     * @var TypeObjet
+     *
+     * @ORM\ManyToOne(targetEntity="TypeObjet")
+     * @ORM\JoinColumn(name="id_typeObjet", referencedColumnName="id", nullable=true)
+     */
+    private $typeObjet;
 
     /**
      * Get id
@@ -92,6 +107,38 @@ class Objets
     public function getQuantite()
     {
         return $this->quantite;
+    }
+
+    /**
+     * @return Npc
+     */
+    public function getNonJoueur()
+    {
+        return $this->nonJoueur;
+    }
+
+    /**
+     * @param Npc $nonJoueur
+     */
+    public function setNonJoueur($nonJoueur)
+    {
+        $this->nonJoueur = $nonJoueur;
+    }
+
+    /**
+     * @return TypeObjet
+     */
+    public function getTypeObjet()
+    {
+        return $this->typeObjet;
+    }
+
+    /**
+     * @param TypeObjet $typeObjet
+     */
+    public function setTypeObjet($typeObjet)
+    {
+        $this->typeObjet = $typeObjet;
     }
 }
 

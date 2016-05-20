@@ -1,13 +1,13 @@
 <?php
 
-namespace SandraPokemonBundle\Entity\Entity;
+namespace SandraPokemonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Zones
  *
- * @ORM\Table(name="entity\zones")
+ * @ORM\Table(name="zones")
  * @ORM\Entity(repositoryClass="SandraPokemonBundle\Repository\Entity\ZonesRepository")
  */
 class Zones

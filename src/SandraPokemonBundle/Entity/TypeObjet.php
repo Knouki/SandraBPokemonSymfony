@@ -1,16 +1,16 @@
 <?php
 
-namespace SandraPokemonBundle\Entity\Entity;
+namespace SandraPokemonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * typeObjet
  *
- * @ORM\Table(name="entity\type_objet")
+ * @ORM\Table(name="type_objet")
  * @ORM\Entity(repositoryClass="SandraPokemonBundle\Repository\Entity\typeObjetRepository")
  */
-class typeObjet
+class TypeObjet
 {
     /**
      * @var int

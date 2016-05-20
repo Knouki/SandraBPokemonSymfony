@@ -1,13 +1,13 @@
 <?php
 
-namespace SandraPokemonBundle\Entity\Entity;
+namespace SandraPokemonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Arenes
  *
- * @ORM\Table(name="entity\arenes")
+ * @ORM\Table(name="arenes")
  * @ORM\Entity(repositoryClass="SandraPokemonBundle\Repository\Entity\ArenesRepository")
  */
 class Arenes
@@ -28,6 +28,21 @@ class Arenes
      */
     private $nom;
 
+    /**
+     * @var Badges
+     *
+     * @ORM\ManyToOne(targetEntity="Badges")
+     * @ORM\JoinColumn(name="id_badges", referencedColumnName="id", nullable=true)
+     */
+    private $dresseur;
+
+    /**
+     * @var Positions
+     *
+     * @ORM\ManyToOne(targetEntity="Positions")
+     * @ORM\JoinColumn(name="id_positions", referencedColumnName="id", nullable=true)
+     */
+    private $position;
 
     /**
      * Get id
@@ -61,6 +76,38 @@ class Arenes
     public function getNom()
     {
         return $this->nom;
+    }
+
+    /**
+     * @return Badges
+     */
+    public function getDresseur()
+    {
+        return $this->dresseur;
+    }
+
+    /**
+     * @param Badges $dresseur
+     */
+    public function setDresseur($dresseur)
+    {
+        $this->dresseur = $dresseur;
+    }
+
+    /**
+     * @return Positions
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param Positions $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
     }
 }
 

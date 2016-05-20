@@ -1,13 +1,15 @@
 <?php
 
-namespace SandraPokemonBundle\Entity\Entity;
+namespace SandraPokemonBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use SandraPokemonBundle\Entity\Badges;
 
 /**
  * Dresseurs
  *
- * @ORM\Table(name="entity\dresseurs")
+ * @ORM\Table(name="dresseurs")
  * @ORM\Entity(repositoryClass="SandraPokemonBundle\Repository\Entity\DresseursRepository")
  */
 class Dresseurs
@@ -35,6 +37,20 @@ class Dresseurs
      * @ORM\JoinColumn(name="id_dresseur", referencedColumnName="id", nullable=true)
      */
     private $npc;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Badges")
+     * @ORM\JoinTable(name="gagne",
+     *      joinColumns={@ORM\JoinColumn(name="id_dresseur", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="id_badges", referencedColumnName="id")}
+     *      )
+     */
+    private $badges;
+
+
+    public function __construct() {
+        $this->badges = new ArrayCollection();
+    }
 
     /**
      * Get id

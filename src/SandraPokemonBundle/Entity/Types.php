@@ -1,13 +1,14 @@
 <?php
 
-namespace SandraPokemonBundle\Entity\Entity;
+namespace SandraPokemonBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Types
  *
- * @ORM\Table(name="entity\types")
+ * @ORM\Table(name="types")
  * @ORM\Entity(repositoryClass="SandraPokemonBundle\Repository\Entity\TypesRepository")
  */
 class Types
@@ -28,6 +29,29 @@ class Types
      */
     private $nom;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Types")
+     * @ORM\JoinTable(name="faible_contre",
+     *      joinColumns={@ORM\JoinColumn(name="id_types", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="id_types_1", referencedColumnName="id")}
+     *      )
+     */
+    private $faibleContre;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Types")
+     * @ORM\JoinTable(name="fort_contre",
+     *      joinColumns={@ORM\JoinColumn(name="id_types", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="id_types_1", referencedColumnName="id")}
+     *      )
+     */
+    private $fortContre;
+
+
+    public function __construct() {
+        $this->faibleContre = new ArrayCollection();
+        $this->fortContre = new ArrayCollection();
+    }
 
     /**
      * Get id

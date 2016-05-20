@@ -1,13 +1,13 @@
 <?php
 
-namespace SandraPokemonBundle\Entity\Entity;
+namespace SandraPokemonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Pokedex
  *
- * @ORM\Table(name="entity\pokedex")
+ * @ORM\Table(name="pokedex")
  * @ORM\Entity(repositoryClass="SandraPokemonBundle\Repository\Entity\PokedexRepository")
  */
 class Pokedex

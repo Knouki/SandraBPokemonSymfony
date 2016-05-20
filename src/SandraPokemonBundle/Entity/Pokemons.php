@@ -1,13 +1,13 @@
 <?php
 
-namespace SandraPokemonBundle\Entity\Entity;
+namespace SandraPokemonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Pokemons
  *
- * @ORM\Table(name="entity\pokemons")
+ * @ORM\Table(name="pokemons")
  * @ORM\Entity(repositoryClass="SandraPokemonBundle\Repository\Entity\PokemonsRepository")
  */
 class Pokemons
@@ -85,7 +85,7 @@ class Pokemons
     /**
      * @var TypeDePokemons
      *
-     * @ORM\ManyToOne(targetEntity="Typ")
+     * @ORM\ManyToOne(targetEntity="TypeDePokemons")
      * @ORM\JoinColumn(name="id_type_pokemons", referencedColumnName="id", nullable=true)
      */
     private $typePokemons;
