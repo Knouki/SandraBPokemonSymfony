@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>TypeDePokemons list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Attaque</th>
+                <th>Attaquespe</th>
+                <th>Defence</th>
+                <th>Defencespe</th>
+                <th>Vitesse</th>
+                <th>Pv</th>
+                <th>Idtypepokemons</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeDePokemon in typeDePokemons %}
+            <tr>
+                <td><a href="{{ path('typedepokemons_show', { 'id': typeDePokemon.idTypePokemons }) }}">{{ typeDePokemon.nom }}</a></td>
+                <td>{{ typeDePokemon.attaque }}</td>
+                <td>{{ typeDePokemon.attaqueSpe }}</td>
+                <td>{{ typeDePokemon.defence }}</td>
+                <td>{{ typeDePokemon.defenceSpe }}</td>
+                <td>{{ typeDePokemon.vitesse }}</td>
+                <td>{{ typeDePokemon.pv }}</td>
+                <td>{{ typeDePokemon.idTypePokemons }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('typedepokemons_show', { 'id': typeDePokemon.idTypePokemons }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('typedepokemons_edit', { 'id': typeDePokemon.idTypePokemons }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('typedepokemons_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pokemons</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Surnom</th>
+                <td>{{ pokemon.surnom }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ pokemon.niveau }}</td>
+            </tr>
+            <tr>
+                <th>Capture</th>
+                <td>{% if pokemon.capture %}{{ pokemon.capture|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Idpokemons</th>
+                <td>{{ pokemon.idPokemons }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pokemons_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('pokemons_edit', { 'id': pokemon.idPokemons }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

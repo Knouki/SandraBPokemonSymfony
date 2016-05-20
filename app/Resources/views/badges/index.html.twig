@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Badges list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Idbadges</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for badge in badges %}
+            <tr>
+                <td><a href="{{ path('badges_show', { 'id': badge.idBadges }) }}">{{ badge.nom }}</a></td>
+                <td>{{ badge.idBadges }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('badges_show', { 'id': badge.idBadges }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('badges_edit', { 'id': badge.idBadges }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('badges_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

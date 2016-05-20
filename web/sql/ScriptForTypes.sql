@@ -1,0 +1,15 @@
+INSERT INTO `types`(`id_types`, `nom`) VALUES (1,'Combat');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (2,'Dragon');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (3,'Eau');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (4,'Électrik');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (5,'Feu');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (6,'Glace');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (7,'Insecte');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (8,'Normal');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (9,'Plante');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (10,'Poison');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (11,'Psy');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (12,'Roche');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (13,'Sol');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (14,'Spectre');
+INSERT INTO `types`(`id_types`, `nom`) VALUES (15,'Vol');

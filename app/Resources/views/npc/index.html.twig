@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Npc list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Iddresseur</th>
+                <th>Nom</th>
+                <th>Profession</th>
+                <th>Texte</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for npc in npcs %}
+            <tr>
+                <td><a href="{{ path('npc_show', { 'id': npc.id }) }}">{{ npc.idDresseur }}</a></td>
+                <td>{{ npc.nom }}</td>
+                <td>{{ npc.profession }}</td>
+                <td>{{ npc.texte }}</td>
+                <td>{{ npc.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('npc_show', { 'id': npc.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('npc_edit', { 'id': npc.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('npc_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
