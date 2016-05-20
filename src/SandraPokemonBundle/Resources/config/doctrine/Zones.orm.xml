@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SandraPokemonBundle\Entity\Zones" table="zones">
+    <indexes>
+      <index name="FK_zones_id_badges" columns="id_badges"/>
+    </indexes>
+    <id name="idZones" type="integer" column="id_zones">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nom" type="string" column="nom" length="25" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="idBadges" target-entity="Badges" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_badges" referenced-column-name="id_badges"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idTypePokemons" target-entity="TypeDePokemons" inversed-by="idZones" fetch="LAZY">
+      <join-table name="viedans">
+        <join-columns>
+          <join-column name="id_zones" referenced-column-name="id_zones"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_type_pokemons" referenced-column-name="id_type_pokemons"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

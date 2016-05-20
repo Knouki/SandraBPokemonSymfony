@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SandraPokemonBundle\Entity\Attaques" table="attaques">
+    <indexes>
+      <index name="FK_attaques_id_types" columns="id_types"/>
+    </indexes>
+    <id name="idAttaques" type="integer" column="id_attaques">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nom" type="string" column="nom" length="25" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="puissance" type="integer" column="puissance" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="precis" type="integer" column="precis" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <many-to-one field="idTypes" target-entity="Types" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_types" referenced-column-name="id_types"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
