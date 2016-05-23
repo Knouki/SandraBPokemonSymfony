@@ -165,11 +165,11 @@ class Dresseurs
     /**
      * Set user
      *
-     * @param \SandraPokemonBundle\Entity\BaseUser $user
+     * @param User $user
      *
      * @return Dresseurs
      */
-    public function setUser(\SandraPokemonBundle\Entity\BaseUser $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -179,7 +179,7 @@ class Dresseurs
     /**
      * Get user
      *
-     * @return \SandraPokemonBundle\Entity\BaseUser
+     * @return User
      */
     public function getUser()
     {

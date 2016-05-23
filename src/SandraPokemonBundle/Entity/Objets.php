@@ -7,15 +7,18 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Objets
  *
- * @ORM\Table(name="objets", indexes={@ORM\Index(name="IDX_334ABAD96C6C7F76", columns={"id_nonjoueur"}), @ORM\Index(name="IDX_334ABAD98D136A08", columns={"id_typeObjet"})})
+ * @ORM\Table(name="objets", indexes={@ORM\Index(name="FK_objets_id_nonjoueur", columns={"id_nonjoueur"}), @ORM\Index(name="FK_objets_id_typeObjet", columns={"id_typeObjet"})})
  * @ORM\Entity
  */
 class Objets
 {
     /**
-     * @var integer
+     * @var \SandraPokemonBundle\Entity\Npc
      *
-     * @ORM\Column(name="id_nonjoueur", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="SandraPokemonBundle\Entity\Npc")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_nonjoueur", referencedColumnName="id")
+     * })
      */
     private $idNonjoueur;
 
@@ -34,9 +37,12 @@ class Objets
     private $quantite;
 
     /**
-     * @var integer
+     * @var \SandraPokemonBundle\Entity\TypeObjet
      *
-     * @ORM\Column(name="id_typeObjet", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="SandraPokemonBundle\Entity\TypeObjet")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_typeObjet", referencedColumnName="id")
+     * })
      */
     private $idTypeobjet;
 

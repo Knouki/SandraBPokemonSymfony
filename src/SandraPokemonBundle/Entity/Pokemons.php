@@ -225,6 +225,21 @@ class Pokemons
     }
 
     /**
+     * Set idTypePokemons
+     *
+     * @param integer $idTypePokemons
+     *
+     * @return Pokemons
+     */
+    public function setIdPokemons($idTypePokemons = null)
+    {
+        $this->idTypePokemons = new TypeDePokemons();
+        $this->idTypePokemons.$this->setIdPokemons($idTypePokemons);
+
+        return $this;
+    }
+
+    /**
      * Get idTypePokemons
      *
      * @return \SandraPokemonBundle\Entity\TypeDePokemons

@@ -7,15 +7,16 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Npc
  *
- * @ORM\Table(name="npc", indexes={@ORM\Index(name="IDX_468C762C2731C353", columns={"id_dresseur"})})
+ * @ORM\Table(name="npc", indexes={@ORM\Index(name="FK_npc_id_dresseur", columns={"id_dresseur"})})
  * @ORM\Entity
  */
 class Npc
 {
     /**
-     * @var integer
+     * @var Dresseurs
      *
-     * @ORM\Column(name="id_dresseur", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="Dresseurs")
+     * @ORM\JoinColumn(name="id_dresseur", referencedColumnName="id_dresseur")
      */
     private $idDresseur;
 
@@ -48,8 +49,6 @@ class Npc
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-
 
     /**
      * Set idDresseur

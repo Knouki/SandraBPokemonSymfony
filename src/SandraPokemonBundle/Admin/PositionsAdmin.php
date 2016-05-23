@@ -2,15 +2,13 @@
 
 namespace SandraPokemonBundle\Admin;
 
-use Doctrine\ORM\EntityRepository;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class ArenesAdmin extends AbstractAdmin
+class PositionsAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -18,10 +16,9 @@ class ArenesAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('idBadges')
+            ->add('x')
+            ->add('y')
             ->add('idPositions')
-            ->add('nom')
-            ->add('id')
         ;
     }
 
@@ -31,10 +28,9 @@ class ArenesAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('idBadges')
+            ->add('x')
+            ->add('y')
             ->add('idPositions')
-            ->add('nom')
-            ->add('id')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -51,29 +47,13 @@ class ArenesAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('idBadges', EntityType::class, array(
-        'class' => 'SandraPokemonBundle\Entity\Badges',
-        'query_builder' => function (EntityRepository $er) {
-            $qb = $er->createQueryBuilder('b');
-
-            return $qb;
-        },
-        'choice_label' => function ($badges) {
-            return $badges->getNom();
-        },
+            ->add('x')
+            ->add('y')
+            ->add('idPositions')
+            ->add('idZones', 'entity', array(
+                'class' => 'SandraPokemonBundle:Zones',
+                'property' => 'nom',
             ))
-            ->add('idPositions', EntityType::class, array(
-                'class' => 'SandraPokemonBundle\Entity\Positions',
-                'query_builder' => function (EntityRepository $er) {
-                    $qb = $er->createQueryBuilder('p');
-
-                    return $qb;
-                },
-                'choice_label' => function ($position) {
-                    return $position->getIdPositions();
-                },
-            ))
-            ->add('nom')
         ;
     }
 
@@ -83,10 +63,9 @@ class ArenesAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('idBadges')
+            ->add('x')
+            ->add('y')
             ->add('idPositions')
-            ->add('nom')
-            ->add('id')
         ;
     }
 }

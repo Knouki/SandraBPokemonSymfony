@@ -2,14 +2,99 @@ services:
 #    sandra_pokemon.example:
 #        class: SandraPokemonBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
-    sandra_pokemon.admin.dresseurs:
-        class: SandraPokemonBundle\Admin\DresseursAdmin
-        arguments: [~, SandraPokemonBundle\Entity\Dresseurs, SandraPokemonBundle:DresseursAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Dresseurs }
 
     sandra_pokemon.admin.arenes:
         class: SandraPokemonBundle\Admin\ArenesAdmin
         arguments: [~, SandraPokemonBundle\Entity\Arenes, SandraPokemonBundle:ArenesAdmin]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Arenes }
+
+    sandra_pokemon.admin.attaques:
+        class: SandraPokemonBundle\Admin\AttaquesAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Attaques, SandraPokemonBundle:AttaquesAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Attaques }
+
+    sandra_pokemon.admin.badges:
+        class: SandraPokemonBundle\Admin\BadgesAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Badges, SandraPokemonBundle:BadgesAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Badges }
+
+    sandra_pokemon.admin.dresseurs:
+        class: SandraPokemonBundle\Admin\DresseursAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Dresseurs, SandraPokemonBundle:DresseursAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Dresseurs }
+
+    sandra_pokemon.admin.evolue_en:
+        class: SandraPokemonBundle\Admin\EvolueEnAdmin
+        arguments: [~, SandraPokemonBundle\Entity\EvolueEn, SandraPokemonBundle:EvolueEnAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: EvolueEn }
+
+    sandra_pokemon.admin.faible_contre:
+        class: SandraPokemonBundle\Admin\FaibleContreAdmin
+        arguments: [~, SandraPokemonBundle\Entity\FaibleContre, SandraPokemonBundle:FaibleContreAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: FaibleContre }
+
+    sandra_pokemon.admin.fort_contre:
+        class: SandraPokemonBundle\Admin\FortContreAdmin
+        arguments: [~, SandraPokemonBundle\Entity\FortContre, SandraPokemonBundle:FortContreAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: FortContre }
+
+    sandra_pokemon.admin.npc:
+        class: SandraPokemonBundle\Admin\NpcAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Npc, SandraPokemonBundle:NpcAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Npc }
+
+    sandra_pokemon.admin.objets:
+        class: SandraPokemonBundle\Admin\ObjetsAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Objets, SandraPokemonBundle:ObjetsAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Objets }
+
+    sandra_pokemon.admin.pokedex:
+        class: SandraPokemonBundle\Admin\PokedexAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Pokedex, SandraPokemonBundle:PokedexAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Pokedex }
+
+    sandra_pokemon.admin.pokemons:
+        class: SandraPokemonBundle\Admin\PokemonsAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Pokemons, SandraPokemonBundle:PokemonsAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Pokemons }
+
+    sandra_pokemon.admin.positions:
+        class: SandraPokemonBundle\Admin\PositionsAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Positions, SandraPokemonBundle:PositionsAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Positions }
+
+    sandra_pokemon.admin.type_de_pokemons:
+        class: SandraPokemonBundle\Admin\TypeDePokemonsAdmin
+        arguments: [~, SandraPokemonBundle\Entity\TypeDePokemons, SandraPokemonBundle:TypeDePokemonsAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: TypeDePokemons }
+
+    sandra_pokemon.admin.type_objet:
+        class: SandraPokemonBundle\Admin\TypeObjetAdmin
+        arguments: [~, SandraPokemonBundle\Entity\TypeObjet, SandraPokemonBundle:TypeObjetAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: TypeObjet }
+
+    sandra_pokemon.admin.types:
+        class: SandraPokemonBundle\Admin\TypesAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Types, SandraPokemonBundle:TypesAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Types }
+
+    sandra_pokemon.admin.zones:
+        class: SandraPokemonBundle\Admin\ZonesAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Zones, SandraPokemonBundle:ZonesAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Zones }

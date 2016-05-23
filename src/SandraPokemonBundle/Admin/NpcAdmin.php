@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class ArenesAdmin extends AbstractAdmin
+class NpcAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -18,9 +18,9 @@ class ArenesAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('idBadges')
-            ->add('idPositions')
             ->add('nom')
+            ->add('profession')
+            ->add('texte')
             ->add('id')
         ;
     }
@@ -31,9 +31,9 @@ class ArenesAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('idBadges')
-            ->add('idPositions')
             ->add('nom')
+            ->add('profession')
+            ->add('texte')
             ->add('id')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -51,29 +51,20 @@ class ArenesAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('idBadges', EntityType::class, array(
-        'class' => 'SandraPokemonBundle\Entity\Badges',
-        'query_builder' => function (EntityRepository $er) {
-            $qb = $er->createQueryBuilder('b');
-
-            return $qb;
-        },
-        'choice_label' => function ($badges) {
-            return $badges->getNom();
-        },
-            ))
-            ->add('idPositions', EntityType::class, array(
-                'class' => 'SandraPokemonBundle\Entity\Positions',
+            ->add('idDresseur', EntityType::class, array(
+                'class' => 'SandraPokemonBundle\Entity\Dresseurs',
                 'query_builder' => function (EntityRepository $er) {
-                    $qb = $er->createQueryBuilder('p');
+                    $qb = $er->createQueryBuilder('d');
 
                     return $qb;
                 },
-                'choice_label' => function ($position) {
-                    return $position->getIdPositions();
+                'choice_label' => function ($dresseur) {
+                    return $dresseur->getNom();
                 },
             ))
             ->add('nom')
+            ->add('profession')
+            ->add('texte')
         ;
     }
 
@@ -83,9 +74,9 @@ class ArenesAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('idBadges')
-            ->add('idPositions')
             ->add('nom')
+            ->add('profession')
+            ->add('texte')
             ->add('id')
         ;
     }

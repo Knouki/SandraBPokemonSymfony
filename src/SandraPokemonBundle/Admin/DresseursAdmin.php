@@ -2,11 +2,13 @@
 
 namespace SandraPokemonBundle\Admin;
 
+use Doctrine\ORM\EntityRepository;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DresseursAdmin extends AbstractAdmin
 {
@@ -46,7 +48,17 @@ class DresseursAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('nom')
-            ->add('idDresseur')
+            ->add('idBadges', EntityType::class, array(
+                'class' => 'SandraPokemonBundle\Entity\Badges',
+                'query_builder' => function (EntityRepository $er) {
+                    $qb = $er->createQueryBuilder('b');
+
+                    return $qb;
+                },
+                'choice_label' => function ($badges) {
+                    return $badges->getNom();
+                },
+            ))
         ;
     }
 
