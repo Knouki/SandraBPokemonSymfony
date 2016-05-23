@@ -2,8 +2,19 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Sandra Pokemon{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="admintheme/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+            <!-- MetisMenu CSS -->
+            <link href="admintheme/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+            <!-- Custom CSS -->
+            <link href="admintheme/dist/css/sb-admin-2.css" rel="stylesheet">
+
+            <!-- Custom Fonts -->
+            <link href="admintheme/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
