@@ -3,6 +3,7 @@
 namespace SandraPokemonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Sonata\UserBundle\Entity\User;
 
 /**
  * Dresseurs
@@ -54,13 +55,20 @@ class Dresseurs
     private $idBadges;
 
     /**
+     * @var Application\Sonata\UserBundle\Entity\User
+     *
+     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $user;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->idBadges = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 
     /**
      * Set nom
@@ -152,5 +160,29 @@ class Dresseurs
     public function getIdBadges()
     {
         return $this->idBadges;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \SandraPokemonBundle\Entity\BaseUser $user
+     *
+     * @return Dresseurs
+     */
+    public function setUser(\SandraPokemonBundle\Entity\BaseUser $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \SandraPokemonBundle\Entity\BaseUser
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

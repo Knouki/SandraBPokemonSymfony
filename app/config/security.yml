@@ -9,6 +9,8 @@ security:
         in_memory:
             memory: ~
 
+    encoders:
+        Application\Sonata\UserBundle\Entity\User: sha512
     firewalls:
         # Disabling t he security for the web debug toolbar, the profiler and Assetic.
         dev:

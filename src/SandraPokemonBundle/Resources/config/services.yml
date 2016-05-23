@@ -2,3 +2,14 @@ services:
 #    sandra_pokemon.example:
 #        class: SandraPokemonBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
+    sandra_pokemon.admin.dresseurs:
+        class: SandraPokemonBundle\Admin\DresseursAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Dresseurs, SandraPokemonBundle:DresseursAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Dresseurs }
+
+    sandra_pokemon.admin.arenes:
+        class: SandraPokemonBundle\Admin\ArenesAdmin
+        arguments: [~, SandraPokemonBundle\Entity\Arenes, SandraPokemonBundle:ArenesAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Arenes }
