@@ -27,24 +27,6 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Dresseurs }
 
-    sandra_pokemon.admin.evolue_en:
-        class: SandraPokemonBundle\Admin\EvolueEnAdmin
-        arguments: [~, SandraPokemonBundle\Entity\EvolueEn, SandraPokemonBundle:EvolueEnAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: EvolueEn }
-
-    sandra_pokemon.admin.faible_contre:
-        class: SandraPokemonBundle\Admin\FaibleContreAdmin
-        arguments: [~, SandraPokemonBundle\Entity\FaibleContre, SandraPokemonBundle:FaibleContreAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: FaibleContre }
-
-    sandra_pokemon.admin.fort_contre:
-        class: SandraPokemonBundle\Admin\FortContreAdmin
-        arguments: [~, SandraPokemonBundle\Entity\FortContre, SandraPokemonBundle:FortContreAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: FortContre }
-
     sandra_pokemon.admin.npc:
         class: SandraPokemonBundle\Admin\NpcAdmin
         arguments: [~, SandraPokemonBundle\Entity\Npc, SandraPokemonBundle:NpcAdmin]

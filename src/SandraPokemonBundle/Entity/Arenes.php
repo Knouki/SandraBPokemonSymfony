@@ -7,22 +7,24 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Arenes
  *
- * @ORM\Table(name="arenes", indexes={@ORM\Index(name="IDX_6E4F908C5EC1E677", columns={"id_badges"}), @ORM\Index(name="IDX_6E4F908C56AA595B", columns={"id_positions"})})
+ * @ORM\Table(name="arenes", indexes={@ORM\Index(name="FK_arenes_id_badges", columns={"id_badges"}), @ORM\Index(name="FK_arenes_id_positions", columns={"id_positions"})})
  * @ORM\Entity
  */
 class Arenes
 {
     /**
-     * @var integer
+     * @var Badges
      *
-     * @ORM\Column(name="id_badges", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="Badges")
+     * @ORM\JoinColumn(name="id_badges", referencedColumnName="id_badges")
      */
     private $idBadges;
 
     /**
-     * @var integer
+     * @var Positions
      *
-     * @ORM\Column(name="id_positions", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="Positions")
+     * @ORM\JoinColumn(name="id_positions", referencedColumnName="id_positions")
      */
     private $idPositions;
 
@@ -124,5 +126,10 @@ class Arenes
     public function getId()
     {
         return $this->id;
+    }
+
+    function __toString()
+    {
+        return $this->getNom();
     }
 }

@@ -179,4 +179,9 @@ class Badges
     {
         return $this->idDresseur;
     }
+
+    function __toString()
+    {
+        return $this->getNom();
+    }
 }

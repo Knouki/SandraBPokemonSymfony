@@ -49,10 +49,10 @@ class PositionsAdmin extends AbstractAdmin
         $formMapper
             ->add('x')
             ->add('y')
-            ->add('idPositions')
             ->add('idZones', 'entity', array(
                 'class' => 'SandraPokemonBundle:Zones',
                 'property' => 'nom',
+                'required'          => false,
             ))
         ;
     }

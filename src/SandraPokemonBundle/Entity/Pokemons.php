@@ -344,4 +344,9 @@ class Pokemons
     {
         return $this->idAttaques1;
     }
+
+    function __toString()
+    {
+        return $this->getNom();
+    }
 }

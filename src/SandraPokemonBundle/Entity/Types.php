@@ -211,4 +211,9 @@ class Types
     {
         return $this->idTypesFort;
     }
+
+    function __toString()
+    {
+        return $this->getNom();
+    }
 }

@@ -58,6 +58,7 @@ class BadgesAdmin extends AbstractAdmin
                 'choice_label' => function ($dresseurs) {
                     return $dresseurs->getNom();
                 },
+                'required'          => false,
             ))
             ->add('idZones', EntityType::class, array(
             'class' => 'SandraPokemonBundle\Entity\Zones',
@@ -69,6 +70,7 @@ class BadgesAdmin extends AbstractAdmin
             'choice_label' => function ($zones) {
                 return $zones->getNom();
             },
+            'required'          => false,
         ))
         ;
     }

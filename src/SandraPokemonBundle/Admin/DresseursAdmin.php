@@ -58,6 +58,8 @@ class DresseursAdmin extends AbstractAdmin
                 'choice_label' => function ($badges) {
                     return $badges->getNom();
                 },
+                'required'          => false,
+                'multiple'          => true,
             ))
         ;
     }

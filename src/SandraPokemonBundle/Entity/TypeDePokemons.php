@@ -439,4 +439,9 @@ class TypeDePokemons
     {
         return $this->idTypePok;
     }
+
+    function __toString()
+    {
+        return $this->getNom();
+    }
 }

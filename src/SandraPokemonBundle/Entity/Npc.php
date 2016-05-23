@@ -155,4 +155,9 @@ class Npc
     {
         return $this->id;
     }
+
+    function __toString()
+    {
+        return $this->getNom();
+    }
 }

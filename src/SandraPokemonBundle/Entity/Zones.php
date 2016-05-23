@@ -153,4 +153,9 @@ class Zones
     {
         return $this->idTypePokemons;
     }
+
+    function __toString()
+    {
+        return $this->getNom();
+    }
 }

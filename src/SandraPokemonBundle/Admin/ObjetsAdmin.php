@@ -60,6 +60,7 @@ class ObjetsAdmin extends AbstractAdmin
                 'choice_label' => function ($npc) {
                     return $npc->getNom();
                 },
+                'required'          => false,
             ))
             ->add('nom')
             ->add('quantite')

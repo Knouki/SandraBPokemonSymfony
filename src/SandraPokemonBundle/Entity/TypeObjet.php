@@ -63,4 +63,9 @@ class TypeObjet
     {
         return $this->id;
     }
+
+    function __toString()
+    {
+        return $this->getNom();
+    }
 }

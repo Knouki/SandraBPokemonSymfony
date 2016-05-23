@@ -128,4 +128,11 @@ class Positions
     {
         return $this->idZones;
     }
+
+    function __toString()
+    {
+        return $this->getX() . " : " . $this->getY();
+    }
+
+
 }

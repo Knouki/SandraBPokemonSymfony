@@ -159,4 +159,9 @@ class Attaques
     {
         return $this->idTypes;
     }
+
+    function __toString()
+    {
+        return $this->getNom();
+    }
 }

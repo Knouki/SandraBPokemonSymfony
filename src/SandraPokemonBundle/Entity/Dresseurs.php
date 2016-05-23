@@ -185,4 +185,9 @@ class Dresseurs
     {
         return $this->user;
     }
+
+    function __toString()
+    {
+        return $this->getNom();
+    }
 }

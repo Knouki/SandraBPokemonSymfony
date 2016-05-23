@@ -61,6 +61,7 @@ class NpcAdmin extends AbstractAdmin
                 'choice_label' => function ($dresseur) {
                     return $dresseur->getNom();
                 },
+                'required'          => false,
             ))
             ->add('nom')
             ->add('profession')
