@@ -1,0 +1,96 @@
+{% extends 'SandraPokemonBundle::base.html.twig' %}
+
+
+{% block content_body %}
+    <div class="row" style="margin: 10px;">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <!--<i class="fa fa-5x"></i> -->
+                            <img alt="pika" style="width: 80px; height: 100px;" src="{{ asset('img/pik.png') }}">
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>Créateur de pokémon</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">Créer son pokémon</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img alt="salam" style="width: 80px; height: 100px;" src="{{ asset('img/salam.png') }}">
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>Exécuteur de SQL</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">Exécuter mon SQL</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img alt="skitty" style="width: 120px; height: 100px;" src="{{ asset('img/skitty.png') }}">
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>Consulter les pokémons</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">Consulter mes pokémons</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img alt="mew" style="width: 80px; height: 100px;" src="{{ asset('img/mew.png') }}">
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>Zone administrateur</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">Je suis l'administrateur</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        Liste des routes
+    </div>
+{% endblock %}
