@@ -1,8 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'SandraPokemonBundle::base.html.twig' %}
 
-{% block body %}
-    <h1>Pokemons list</h1>
-
+{% block content_body %}
     <table>
         <thead>
             <tr>
@@ -24,9 +22,6 @@
                     <ul>
                         <li>
                             <a href="{{ path('pokemons_show', { 'id': pokemon.idPokemons }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('pokemons_edit', { 'id': pokemon.idPokemons }) }}">edit</a>
                         </li>
                     </ul>
                 </td>

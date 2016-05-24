@@ -26,9 +26,16 @@ class PokemonsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $pokemons = $em->getRepository('SandraPokemonBundle:Pokemons')->findAll();
+        $dresseurId = 1;
 
-        return $this->render('pokemons/index.html.twig', array(
+        $pokemons = $em->getRepository('SandraPokemonBundle:Pokemons')->createQueryBuilder('p')
+        ->where('p.idDresseur is not NULL')
+        ->andWhere('p.idDresseur = :dresseur')
+        ->setParameter('dresseur', $dresseurId)
+        ->getQuery()
+        ->getResult();
+
+        return $this->render('@SandraPokemon/pokemons/index.html.twig', array(
             'pokemons' => $pokemons,
         ));
     }
@@ -67,74 +74,8 @@ class PokemonsController extends Controller
      */
     public function showAction(Pokemons $pokemon)
     {
-        $deleteForm = $this->createDeleteForm($pokemon);
-
         return $this->render('pokemons/show.html.twig', array(
             'pokemon' => $pokemon,
-            'delete_form' => $deleteForm->createView(),
         ));
-    }
-
-    /**
-     * Displays a form to edit an existing Pokemons entity.
-     *
-     * @Route("/{id}/edit", name="pokemons_edit")
-     * @Method({"GET", "POST"})
-     */
-    public function editAction(Request $request, Pokemons $pokemon)
-    {
-        $deleteForm = $this->createDeleteForm($pokemon);
-        $editForm = $this->createForm('SandraPokemonBundle\Form\PokemonsType', $pokemon);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($pokemon);
-            $em->flush();
-
-            return $this->redirectToRoute('pokemons_edit', array('id' => $pokemon->getId()));
-        }
-
-        return $this->render('pokemons/edit.html.twig', array(
-            'pokemon' => $pokemon,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Deletes a Pokemons entity.
-     *
-     * @Route("/{id}", name="pokemons_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, Pokemons $pokemon)
-    {
-        $form = $this->createDeleteForm($pokemon);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($pokemon);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('pokemons_index');
-    }
-
-    /**
-     * Creates a form to delete a Pokemons entity.
-     *
-     * @param Pokemons $pokemon The Pokemons entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Pokemons $pokemon)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('pokemons_delete', array('id' => $pokemon->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
     }
 }
