@@ -16,25 +16,28 @@
 
             <!-- Custom Fonts -->
             <link href="admintheme/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         {% endblock %}
 
         {% block javascripts %}
             <!-- jQuery -->
-            <script src="admintheme/bower_components/jquery/dist/jquery.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+            <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
             <!-- Bootstrap Core JavaScript -->
             <script src="admintheme/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
             <!-- Metis Menu Plugin JavaScript -->
-            <script src="admintheme/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+            {#<script src="admintheme/bower_components/metisMenu/dist/metisMenu.min.js"></script>#}
 
-            <!-- Morris Charts JavaScript -->
-            <script src="admintheme/bower_components/raphael/raphael-min.js"></script>
-            <script src="admintheme/bower_components/morrisjs/morris.min.js"></script>
-            <script src="admintheme/js/morris-data.js"></script>
+            {#<!-- Morris Charts JavaScript -->#}
+            {#<script src="admintheme/bower_components/raphael/raphael-min.js"></script>#}
+            {#<script src="admintheme/bower_components/morrisjs/morris.min.js"></script>#}
+            {#<script src="admintheme/js/morris-data.js"></script>#}
 
-            <!-- Custom Theme JavaScript -->
-            <script src="admintheme/dist/js/sb-admin-2.js"></script>
+            {#<!-- Custom Theme JavaScript -->#}
+            {#<script src="admintheme/dist/js/sb-admin-2.js"></script>#}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
