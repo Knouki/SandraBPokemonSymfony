@@ -1,38 +1,21 @@
 {% extends 'SandraPokemonBundle::base.html.twig' %}
 
 {% block content_body %}
-    <table>
-        <thead>
-            <tr>
-                <th>Surnom</th>
-                <th>Niveau</th>
-                <th>Capture</th>
-                <th>Idpokemons</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for pokemon in pokemons %}
-            <tr>
-                <td><a href="{{ path('pokemons_show', { 'id': pokemon.idPokemons }) }}">{{ pokemon.surnom }}</a></td>
-                <td>{{ pokemon.niveau }}</td>
-                <td>{% if pokemon.capture %}{{ pokemon.capture|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ pokemon.idPokemons }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('pokemons_show', { 'id': pokemon.idPokemons }) }}">show</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="col-md-12">
+    {% for pokemon in pokemons %}
+        <div class="col-md-4" style="height: 80px;">
+            <img src="{{ asset('img/pokeball.png') }}" style="margin-top: 25px;" alt="pokeball" class="img-responsive col-md-3"/>
 
-    <ul>
-        <li>
-            <a href="{{ path('pokemons_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+            <div class="col-md-9">
+                <label>{{ pokemon.surnom }}</label> <span> LVL {{ pokemon.niveau }}</span>
+                </br>
+                <label>{{ pokemon.idPokemons }}</label>
+                </br>
+                <label>{% if pokemon.capture %}Capturé le : {{ pokemon.capture|date('d/m') }}{% endif %}</label>
+
+
+            </div>
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}

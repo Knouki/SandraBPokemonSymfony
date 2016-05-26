@@ -6,16 +6,18 @@
             {% block title %}Sandra Pokemon{% endblock %}
         </title>
         {% block stylesheets %}
-            <link href="admintheme/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+            <link rel="shortcut icon" type="image/x-icon" href="icon.ico" />
+
+            <link href="{{ asset('admintheme/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
             <!-- MetisMenu CSS -->
-            <link href="admintheme/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+            <link href="{{ asset('admintheme/bower_components/metisMenu/dist/metisMenu.min.css') }}" rel="stylesheet">
 
             <!-- Custom CSS -->
-            <link href="admintheme/dist/css/sb-admin-2.css" rel="stylesheet">
+            <link href="{{ asset('admintheme/dist/css/sb-admin-2.css') }}" rel="stylesheet">
 
             <!-- Custom Fonts -->
-            <link href="admintheme/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <link href="{{ asset('admintheme/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
             <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         {% endblock %}
@@ -26,7 +28,7 @@
             <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
             <!-- Bootstrap Core JavaScript -->
-            <script src="admintheme/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="{{ asset('admintheme/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
             <!-- Metis Menu Plugin JavaScript -->
             {#<script src="admintheme/bower_components/metisMenu/dist/metisMenu.min.js"></script>#}

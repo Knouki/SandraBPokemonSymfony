@@ -60,7 +60,7 @@ class PokemonsController extends Controller
             return $this->redirectToRoute('pokemons_show', array('id' => $pokemon->getId()));
         }
 
-        return $this->render('pokemons/new.html.twig', array(
+        return $this->render('@SandraPokemon/pokemons/new.html.twig', array(
             'pokemon' => $pokemon,
             'form' => $form->createView(),
         ));

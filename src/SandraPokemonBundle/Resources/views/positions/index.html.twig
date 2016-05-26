@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Positions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>X</th>
+                <th>Y</th>
+                <th>Idpositions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for position in positions %}
+            <tr>
+                <td><a href="{{ path('positions_show', { 'id': position.idPositions }) }}">{{ position.x }}</a></td>
+                <td>{{ position.y }}</td>
+                <td>{{ position.idPositions }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('positions_show', { 'id': position.idPositions }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('positions_edit', { 'id': position.idPositions }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('positions_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
