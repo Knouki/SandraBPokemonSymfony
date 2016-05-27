@@ -2,20 +2,27 @@
 
 
 {% block content_body %}
-    <div class="row" style="margin: 10px;">
+    <div class="row" style="padding: 10px;">
         <h1>Exécuteur de SQL</h1>
-
+        </br>
 
         <h4>Saisie ton SQL</h4>
         {{ form_start(sqlForm) }}
+
         <div class="form-group">
-            {{ form_widget(sqlForm) }}
+            {{ form_widget(sqlForm.sql, {'attr': {'class': 'form-control'}} ) }}
+            </br>
             <button type="submit" class="btn btn-default">Valider</button>
         </div>
         {{ form_end(sqlForm) }}
 
         <div>
+            </br>
             <h4>Résultat de ta requête</h4>
+
+            {% if result %}
+                <div class="col-md-12" style="word-wrap: break-word;">{{ result }}</div>
+            {% endif %}
         </div>
     </div>
 

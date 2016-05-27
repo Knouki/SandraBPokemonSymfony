@@ -39,6 +39,7 @@
     <div class="row" style="margin: 10px;">
         <h1>Créateur de pokémon</h1>
 
+        {{ form_start(pokemonForm) }}
         <div class="form-group">
             {{ form_label(pokemonForm.nom) }}
             {{ form_widget(pokemonForm.nom, {'attr': {'class': 'form-control'}}) }}
@@ -108,6 +109,8 @@
         </div>
 
         <input type="submit" class="btn btn-default" value="Valider"/>
+
+        {{ form_end(pokemonForm) }}
     </div>
 
 {% endblock %}

@@ -4,9 +4,10 @@ namespace SandraPokemonBundle\Controller;
 
 use SandraPokemonBundle\Entity\TypeDePokemons;
 use SandraPokemonBundle\Form\SqlType;
-use SandraPokemonBundle\Form\TypeDePokemonsType;
+use SandraPokemonBundle\Form\TypeDePokemonsLightType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -25,13 +26,27 @@ class DefaultController extends Controller
     public function sqlAction(Request $request)
     {
         $sqlForm = $this->createForm(SqlType::class);
+        $result = "";
 
         if ($request) {
-            var_dump($sqlForm->get("sql"));
+            $sql = $request->get('sql');
+
+            if ($sql != null) {
+                try {
+                    $conn = $this->get('database_connection');
+
+                    $query = $conn->query(reset($sql));
+
+                    $result = json_encode($query->fetchAll());
+                } catch (\Exception $exception) {
+                    $result = "Cette requête n'est pas valide.";
+                }
+            }
         }
 
         return $this->render('SandraPokemonBundle:default:sql.html.twig', array(
-        'sqlForm' => $sqlForm->createView(),
+            'sqlForm' => $sqlForm->createView(),
+            'result' => $result,
     ));
 
     }
@@ -44,7 +59,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $pokemon = new TypeDePokemons();
-        $pokemonForm = $this->createForm(TypeDePokemonsType::class, $pokemon);
+        $pokemonForm = $this->createForm(TypeDePokemonsLightType::class, $pokemon);
 
         $zones = $em->getRepository('SandraPokemonBundle:Zones')->findAll();
         $types = $em->getRepository('SandraPokemonBundle:Types')->findAll();
@@ -54,7 +69,7 @@ class DefaultController extends Controller
         if ($pokemonForm->isSubmitted() && $pokemonForm->isValid()) {
             $em->flush();
 
-            return $this->redirectToRoute('sandra_pokemon_default_index');
+            return $this->redirectToRoute('/');
         }
 
 

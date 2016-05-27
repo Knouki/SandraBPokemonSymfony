@@ -2,9 +2,11 @@
 
 {% block content_body %}
     <div class="col-md-12">
+        <h1>Mes pokémons</h1>
+
     {% for pokemon in pokemons %}
-        <div class="col-md-4" style="height: 80px;">
-            <img src="{{ asset('img/pokeball.png') }}" style="margin-top: 25px;" alt="pokeball" class="img-responsive col-md-3"/>
+        <div class="pokemon" >
+            <img src="{{ asset('img/pokeball.png') }}" style="margin-top: 18px;" alt="pokeball" class="img-responsive col-md-3"/>
 
             <div class="col-md-9">
                 <label>{{ pokemon.surnom }}</label> <span> LVL {{ pokemon.niveau }}</span>

@@ -44,3 +44,15 @@
     margin: 4px;
     border-radius: 4px;
 }
+
+.pokemon {
+    height: 80px;
+    width: 300px;
+    background-color: antiquewhite;
+    border-radius: 4px;
+    margin: 20px;
+}
+
+#panel-poke {
+    border: none;
+}

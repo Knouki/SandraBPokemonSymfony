@@ -26,7 +26,7 @@ class PokemonsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $dresseurId = 1;
+        $dresseurId = $this->getUser()->getId();
 
         $pokemons = $em->getRepository('SandraPokemonBundle:Pokemons')->createQueryBuilder('p')
         ->where('p.idDresseur is not NULL')
