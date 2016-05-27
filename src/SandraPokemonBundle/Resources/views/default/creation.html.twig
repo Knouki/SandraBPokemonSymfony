@@ -25,7 +25,7 @@
         var selectedEvolutions = $('#selected-evolutions');
         selectedEvolutions.find('li').each(function(index) {
             var id = $(this).data('value');
-            $('#pokemon_definition_evolutions option[value='+id+']').prop('selected', true)
+            $('#pokemon_definition_types option[value='+id+']').prop('selected', true)
         })
 
         $('#pokemonForm').submit();
@@ -38,6 +38,10 @@
 {% block content_body %}
     <div class="row" style="margin: 10px;">
         <h1>Créateur de pokémon</h1>
+
+        {% if result %}
+            {{ result }}
+        {% endif %}
 
         {{ form_start(pokemonForm) }}
         <div class="form-group">
@@ -73,11 +77,11 @@
             {{ form_label(pokemonForm.idZones, "Zones") }}
             </br>
 
-            <ul id="selected-zones" class="connectedZone col-md-6 zones-background">
+            <ul id="selected-zones" style="margin-right: 10px;" class="connectedZone col-md-5 zones-background">
 
             </ul>
 
-                <div class="col-md-6 zones-background">
+                <div class="col-md-5 zones-background">
                     <ul id="zones" class="col-md-12 connectedZone">
                         {% for zone in zones %}
                             <li class="zone-li" data-value="{{ zone.idZones }}">{{ zone.nom }}
@@ -92,11 +96,11 @@
             {{ form_label(pokemonForm.idTypes, "Types") }}
             </br>
 
-            <ul id="selected-types" class="connectedType col-md-6 types-background">
+            <ul id="selected-types" style="margin-right: 10px;" class="connectedType col-md-5 types-background">
 
             </ul>
 
-                <div class="col-md-6 types-background">
+                <div class="col-md-5 types-background">
                     <ul id="types" class="col-md-12 connectedType">
                         {% for type in types %}
                             <li class="type-li" data-value="{{ type.idTypes }}">
@@ -106,6 +110,11 @@
                     </ul>
 
                 </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_widget(pokemonForm.idZones, {'attr': {'id': 'pokemon_definition_zones', 'class' : 'hidden'}}) }}
+            {{ form_widget(pokemonForm.idTypes, {'attr': {'id': 'pokemon_definition_types', 'class' : 'hidden'}}) }}
         </div>
 
         <input type="submit" class="btn btn-default" value="Valider"/>

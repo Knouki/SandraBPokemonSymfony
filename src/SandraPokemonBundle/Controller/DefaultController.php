@@ -58,6 +58,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        $result = "";
         $pokemon = new TypeDePokemons();
         $pokemonForm = $this->createForm(TypeDePokemonsLightType::class, $pokemon);
 
@@ -67,9 +68,15 @@ class DefaultController extends Controller
         $pokemonForm->handleRequest($request);
 
         if ($pokemonForm->isSubmitted() && $pokemonForm->isValid()) {
+            $em->persist($pokemon);
             $em->flush();
 
-            return $this->redirectToRoute('/');
+            unset($pokemon);
+            unset($pokemonForm);
+            $pokemon = new TypeDePokemons();
+            $pokemonForm = $this->createForm(TypeDePokemonsLightType::class, $pokemon);
+
+            $result = "Pokemon ajouté !";
         }
 
 
@@ -77,7 +84,8 @@ class DefaultController extends Controller
             'pokemon' => $pokemon,
             'pokemonForm' => $pokemonForm->createView(),
             'zones' => $zones,
-            'types' => $types
+            'types' => $types,
+            'result' => $result,
         ));
     }
 
