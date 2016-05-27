@@ -1,8 +1,19 @@
 {% extends 'SandraPokemonBundle::base.html.twig' %}
 
+{% block javascripts %}
+{{ parent() }}
+
+    <script>
+        $(document).ready(function(){
+            $('#test').on('click', function () {
+                $('#testContent').toggle('show');
+            });
+        });
+    </script>
+{% endblock %}
 
 {% block content_body %}
-    <div class="row" style="margin: 10px;">
+    <div class="row" style="padding: 10px;">
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -90,7 +101,109 @@
         </div>
     </div>
 
-    <div class="row">
-        Liste des routes
+    <div class="col-md-12">
+        <button id="test" class="button-grey">Liste des routes</button>
+        <div class="row pouf" id="testContent" style="display: none;">
+            <a href="/">/</a>
+            <a href="/sql">/sql</a>
+            <a href="/creation">/creation</a>
+            <a href="/pokemons">/pokemons/</a>
+            <a href="/pokemons/new">/pokemons/new</a>
+            <a href="/pokemons/{id}">/pokemons/{id}</a>
+            <a href="/admin">/admin/</a>
+            <a href="/logout">/logout</a>
+            <a href="/admin/dashboard">/admin/dashboard</a>
+            <a href="/admin/sandrapokemon/arenes/list">/admin/sandrapokemon/arenes/list</a>
+            <a href="/admin/sandrapokemon/arenes/create">/admin/sandrapokemon/arenes/create</a>
+            <a href="/admin/sandrapokemon/arenes/batch">/admin/sandrapokemon/arenes/batch</a>
+            <a href="/admin/sandrapokemon/arenes/{id}/edit">/admin/sandrapokemon/arenes/{id}/edit</a>
+            <a href="/admin/sandrapokemon/arenes/{id}/delete">/admin/sandrapokemon/arenes/{id}/delete</a>
+            <a href="/admin/sandrapokemon/arenes/{id}/show">/admin/sandrapokemon/arenes/{id}/show</a>
+            <a href="/admin/sandrapokemon/arenes/export">/admin/sandrapokemon/arenes/export</a>
+            <a href="/admin/sandrapokemon/attaques/list">/admin/sandrapokemon/attaques/list</a>
+            <a href="/admin/sandrapokemon/attaques/create">/admin/sandrapokemon/attaques/create</a>
+            <a href="/admin/sandrapokemon/attaques/batch">/admin/sandrapokemon/attaques/batch</a>
+            <a href="/admin/sandrapokemon/attaques/{id}/edit">/admin/sandrapokemon/attaques/{id}/edit</a>
+            <a href="/admin/sandrapokemon/attaques/{id}/delete">/admin/sandrapokemon/attaques/{id}/delete</a>
+            <a href="/admin/sandrapokemon/attaques/{id}/show">/admin/sandrapokemon/attaques/{id}/show</a>
+            <a href="/admin/sandrapokemon/attaques/export">/admin/sandrapokemon/attaques/export</a>
+            <a href="/admin/sandrapokemon/badges/list">/admin/sandrapokemon/badges/list</a>
+            <a href="/admin/sandrapokemon/badges/create">/admin/sandrapokemon/badges/create</a>
+            <a href="/admin/sandrapokemon/badges/batch">/admin/sandrapokemon/badges/batch</a>
+            <a href="/admin/sandrapokemon/badges/{id}/edit">/admin/sandrapokemon/badges/{id}/edit</a>
+            <a href="/admin/sandrapokemon/badges/{id}/delete">/admin/sandrapokemon/badges/{id}/delete</a>
+            <a href="/admin/sandrapokemon/badges/{id}/show">/admin/sandrapokemon/badges/{id}/show</a>
+            <a href="/admin/sandrapokemon/badges/export">/admin/sandrapokemon/badges/export</a>
+            <a href="/admin/sandrapokemon/dresseurs/list">/admin/sandrapokemon/dresseurs/list</a>
+            <a href="/admin/sandrapokemon/dresseurs/create">/admin/sandrapokemon/dresseurs/create</a>
+            <a href="/admin/sandrapokemon/dresseurs/batch">/admin/sandrapokemon/dresseurs/batch</a>
+            <a href="/admin/sandrapokemon/dresseurs/{id}/edit">/admin/sandrapokemon/dresseurs/{id}/edit</a>
+            <a href="/admin/sandrapokemon/dresseurs/{id}/delete">/admin/sandrapokemon/dresseurs/{id}/delete</a>
+            <a href="/admin/sandrapokemon/dresseurs/{id}/show">/admin/sandrapokemon/dresseurs/{id}/show</a>
+            <a href="/admin/sandrapokemon/dresseurs/export">/admin/sandrapokemon/dresseurs/export</a>
+            <a href="/admin/sandrapokemon/npc/list">/admin/sandrapokemon/npc/list</a>
+            <a href="/admin/sandrapokemon/npc/create">/admin/sandrapokemon/npc/create</a>
+            <a href="/admin/sandrapokemon/npc/batch">/admin/sandrapokemon/npc/batch</a>
+            <a href="/admin/sandrapokemon/npc/{id}/edit">/admin/sandrapokemon/npc/{id}/edit</a>
+            <a href="/admin/sandrapokemon/npc/{id}/delete">/admin/sandrapokemon/npc/{id}/delete</a>
+            <a href="/admin/sandrapokemon/npc/{id}/show">/admin/sandrapokemon/npc/{id}/show</a>
+            <a href="/admin/sandrapokemon/npc/export">/admin/sandrapokemon/npc/export</a>
+            <a href="/admin/sandrapokemon/objets/list">/admin/sandrapokemon/objets/list</a>
+            <a href="/admin/sandrapokemon/objets/create">/admin/sandrapokemon/objets/create</a>
+            <a href="/admin/sandrapokemon/objets/batch">/admin/sandrapokemon/objets/batch</a>
+            <a href="/admin/sandrapokemon/objets/{id}/edit">/admin/sandrapokemon/objets/{id}/edit</a>
+            <a href="/admin/sandrapokemon/objets/{id}/delete">/admin/sandrapokemon/objets/{id}/delete</a>
+            <a href="/admin/sandrapokemon/objets/{id}/show">/admin/sandrapokemon/objets/{id}/show</a>
+            <a href="/admin/sandrapokemon/objets/export">/admin/sandrapokemon/objets/export</a>
+            <a href="/admin/sandrapokemon/pokedex/list">/admin/sandrapokemon/pokedex/list</a>
+            <a href="/admin/sandrapokemon/pokedex/create">/admin/sandrapokemon/pokedex/create</a>
+            <a href="/admin/sandrapokemon/pokedex/batch">/admin/sandrapokemon/pokedex/batch</a>
+            <a href="/admin/sandrapokemon/pokedex/{id}/edit">/admin/sandrapokemon/pokedex/{id}/edit</a>
+            <a href="/admin/sandrapokemon/pokedex/{id}/delete">/admin/sandrapokemon/pokedex/{id}/delete</a>
+            <a href="/admin/sandrapokemon/pokedex/{id}/show">/admin/sandrapokemon/pokedex/{id}/show</a>
+            <a href="/admin/sandrapokemon/pokedex/export">/admin/sandrapokemon/pokedex/export</a>
+            <a href="/admin/sandrapokemon/pokemons/list">/admin/sandrapokemon/pokemons/list</a>
+            <a href="/admin/sandrapokemon/pokemons/create">/admin/sandrapokemon/pokemons/create</a>
+            <a href="/admin/sandrapokemon/pokemons/batch">/admin/sandrapokemon/pokemons/batch</a>
+            <a href="/admin/sandrapokemon/pokemons/{id}/edit">/admin/sandrapokemon/pokemons/{id}/edit</a>
+            <a href="/admin/sandrapokemon/pokemons/{id}/delete">/admin/sandrapokemon/pokemons/{id}/delete</a>
+            <a href="/admin/sandrapokemon/pokemons/{id}/show">/admin/sandrapokemon/pokemons/{id}/show</a>
+            <a href="/admin/sandrapokemon/pokemons/export">/admin/sandrapokemon/pokemons/export</a>
+            <a href="/admin/sandrapokemon/positions/list">/admin/sandrapokemon/positions/list</a>
+            <a href="/admin/sandrapokemon/positions/create">/admin/sandrapokemon/positions/create</a>
+            <a href="/admin/sandrapokemon/positions/batch">/admin/sandrapokemon/positions/batch</a>
+            <a href="/admin/sandrapokemon/positions/{id}/edit">/admin/sandrapokemon/positions/{id}/edit</a>
+            <a href="/admin/sandrapokemon/positions/{id}/delete">/admin/sandrapokemon/positions/{id}/delete</a>
+            <a href="/admin/sandrapokemon/positions/{id}/show">/admin/sandrapokemon/positions/{id}/show</a>
+            <a href="/admin/sandrapokemon/positions/export">/admin/sandrapokemon/positions/export</a>
+            <a href="/admin/sandrapokemon/typedepokemons/list">/admin/sandrapokemon/typedepokemons/list</a>
+            <a href="/admin/sandrapokemon/typedepokemons/create">/admin/sandrapokemon/typedepokemons/create</a>
+            <a href="/admin/sandrapokemon/typedepokemons/batch">/admin/sandrapokemon/typedepokemons/batch</a>
+            <a href="/admin/sandrapokemon/typedepokemons/{id}/edit">/admin/sandrapokemon/typedepokemons/{id}/edit</a>
+            <a href="/admin/sandrapokemon/typedepokemons/{id}/delete">/admin/sandrapokemon/typedepokemons/{id}/delete</a>
+            <a href="/admin/sandrapokemon/typedepokemons/{id}/show">/admin/sandrapokemon/typedepokemons/{id}/show</a>
+            <a href="/admin/sandrapokemon/typedepokemons/export">/admin/sandrapokemon/typedepokemons/export</a>
+            <a href="/admin/sandrapokemon/typeobjet/list">/admin/sandrapokemon/typeobjet/list</a>
+            <a href="/admin/sandrapokemon/typeobjet/create">/admin/sandrapokemon/typeobjet/create</a>
+            <a href="/admin/sandrapokemon/typeobjet/batch">/admin/sandrapokemon/typeobjet/batch</a>
+            <a href="/admin/sandrapokemon/typeobjet/{id}/edit">/admin/sandrapokemon/typeobjet/{id}/edit</a>
+            <a href="/admin/sandrapokemon/typeobjet/{id}/delete">/admin/sandrapokemon/typeobjet/{id}/delete</a>
+            <a href="/admin/sandrapokemon/typeobjet/{id}/show">/admin/sandrapokemon/typeobjet/{id}/show</a>
+            <a href="/admin/sandrapokemon/typeobjet/export">/admin/sandrapokemon/typeobjet/export</a>
+            <a href="/admin/sandrapokemon/types/list">/admin/sandrapokemon/types/list</a>
+            <a href="/admin/sandrapokemon/types/create">/admin/sandrapokemon/types/create</a>
+            <a href="/admin/sandrapokemon/types/batch">/admin/sandrapokemon/types/batch</a>
+            <a href="/admin/sandrapokemon/types/{id}/edit">/admin/sandrapokemon/types/{id}/edit</a>
+            <a href="/admin/sandrapokemon/types/{id}/delete">/admin/sandrapokemon/types/{id}/delete</a>
+            <a href="/admin/sandrapokemon/types/{id}/show">/admin/sandrapokemon/types/{id}/show</a>
+            <a href="/admin/sandrapokemon/types/export">/admin/sandrapokemon/types/export</a>
+            <a href="/admin/sandrapokemon/zones/list">/admin/sandrapokemon/zones/list</a>
+            <a href="/admin/sandrapokemon/zones/create">/admin/sandrapokemon/zones/create</a>
+            <a href="/admin/sandrapokemon/zones/batch">/admin/sandrapokemon/zones/batch</a>
+            <a href="/admin/sandrapokemon/zones/{id}/edit">/admin/sandrapokemon/zones/{id}/edit</a>
+            <a href="/admin/sandrapokemon/zones/{id}/delete">/admin/sandrapokemon/zones/{id}/delete</a>
+            <a href="/admin/sandrapokemon/zones/{id}/show">/admin/sandrapokemon/zones/{id}/show</a>
+            <a href="/admin/sandrapokemon/zones/export">/admin/sandrapokemon/zones/export</a>
+        </div>
     </div>
 {% endblock %}

@@ -1,0 +1,46 @@
+.pouf a{
+    display: table;
+    margin-left: 16px;
+}
+
+.button-grey {
+    background-color: gainsboro;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    color: cornflowerblue;
+}
+
+.zones-background {
+    height: 100px;
+    border: solid 1px brown;
+    border-radius: 5px;
+}
+
+.types-background {
+    height: 100px;
+    border: solid 1px burlywood;
+    border-radius: 5px;
+}
+
+.zone-li {
+    background-color: #B94A48;
+    display: inline;
+    color: white;
+    /* width: 125px; */
+    padding: 0px;
+    /* height: 40px; */
+    margin: 4px;
+    border-radius: 4px;
+}
+
+.type-li {
+    background-color: burlywood;
+    display: inline;
+    color: white;
+    /* width: 125px; */
+    padding: 0px;
+    /* height: 40px; */
+    margin: 4px;
+    border-radius: 4px;
+}
