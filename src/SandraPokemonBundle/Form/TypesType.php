@@ -17,8 +17,6 @@ class TypesType extends AbstractType
         $builder
             ->add('nom')
             ->add('idTypePokemons')
-            ->add('idTypesFaible')
-            ->add('idTypesFort')
         ;
     }
     

@@ -36,43 +36,11 @@ class Types
     private $idTypePokemons;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="SandraPokemonBundle\Entity\Types", inversedBy="idTypesBase")
-     * @ORM\JoinTable(name="fortcontre",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_types_base", referencedColumnName="id_types")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_types_faible", referencedColumnName="id_types")
-     *   }
-     * )
-     */
-    private $idTypesFaible;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="SandraPokemonBundle\Entity\Types", inversedBy="idTypesBase")
-     * @ORM\JoinTable(name="faiblecontre",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_types_base", referencedColumnName="id_types")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_types_fort", referencedColumnName="id_types")
-     *   }
-     * )
-     */
-    private $idTypesFort;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
         $this->idTypePokemons = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idTypesFaible = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idTypesFort = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -142,74 +110,6 @@ class Types
     public function getIdTypePokemons()
     {
         return $this->idTypePokemons;
-    }
-
-    /**
-     * Add idTypesFaible
-     *
-     * @param \SandraPokemonBundle\Entity\Types $idTypesFaible
-     *
-     * @return Types
-     */
-    public function addIdTypesFaible(\SandraPokemonBundle\Entity\Types $idTypesFaible)
-    {
-        $this->idTypesFaible[] = $idTypesFaible;
-
-        return $this;
-    }
-
-    /**
-     * Remove idTypesFaible
-     *
-     * @param \SandraPokemonBundle\Entity\Types $idTypesFaible
-     */
-    public function removeIdTypesFaible(\SandraPokemonBundle\Entity\Types $idTypesFaible)
-    {
-        $this->idTypesFaible->removeElement($idTypesFaible);
-    }
-
-    /**
-     * Get idTypesFaible
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdTypesFaible()
-    {
-        return $this->idTypesFaible;
-    }
-
-    /**
-     * Add idTypesFort
-     *
-     * @param \SandraPokemonBundle\Entity\Types $idTypesFort
-     *
-     * @return Types
-     */
-    public function addIdTypesFort(\SandraPokemonBundle\Entity\Types $idTypesFort)
-    {
-        $this->idTypesFort[] = $idTypesFort;
-
-        return $this;
-    }
-
-    /**
-     * Remove idTypesFort
-     *
-     * @param \SandraPokemonBundle\Entity\Types $idTypesFort
-     */
-    public function removeIdTypesFort(\SandraPokemonBundle\Entity\Types $idTypesFort)
-    {
-        $this->idTypesFort->removeElement($idTypesFort);
-    }
-
-    /**
-     * Get idTypesFort
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdTypesFort()
-    {
-        return $this->idTypesFort;
     }
 
     function __toString()

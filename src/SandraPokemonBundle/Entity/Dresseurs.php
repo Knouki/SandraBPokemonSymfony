@@ -8,7 +8,7 @@ use Application\Sonata\UserBundle\Entity\User;
 /**
  * Dresseurs
  *
- * @ORM\Table(name="dresseurs", indexes={@ORM\Index(name="FK_dresseurs_id_badges", columns={"id_badges1"})})
+ * @ORM\Table(name="dresseurs")
  * @ORM\Entity
  */
 class Dresseurs

@@ -23,6 +23,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setRoles(array('ROLE_SUPER_ADMIN'));
 
         $userManager = $this->container->get('fos_user.user_manager');
+        $userManager->updateUser($user, true);
 
         // Create our user and set details
         $user = $userManager->createUser();
@@ -115,7 +116,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 
     public function getOrder()
     {
-        return 0;
+        return 1;
     }
 
     public function setContainer(ContainerInterface $container = null)
