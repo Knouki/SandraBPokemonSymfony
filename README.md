@@ -3,6 +3,7 @@
 Pour commencer cloné le projet et lancer la commande :
 
 php composer.phar install
+
 Lorsque l'on demande les informations pour la database, mettre la database qui va servir pour le projet
 
 Exécuter ensuite les commandes :
