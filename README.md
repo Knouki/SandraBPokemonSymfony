@@ -9,7 +9,9 @@ Lorsque l'on demande les informations pour la database, mettre la database qui v
 Exécuter ensuite les commandes :
 
 php bin/console doctrine:database:create
+
 php bin/console doctrine:schema:update --force
+
 php bin/console doctrine:fixtures:load
 
 php bin/console server:run
@@ -19,9 +21,13 @@ localhost:8000/
 
 
 Compte administrateur : 
+
 admin 
+
 1234
 
 Compte utilisateur :
+
 Pierre
+
 password
